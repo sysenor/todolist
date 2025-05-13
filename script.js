@@ -38,7 +38,7 @@ function addTodoItem() {
   if (heroList.includes(cleanName)) {
     reward = ` — Reward: 1 500 000 Gold`;
   } else if (villains.includes(cleanName)) {
-    reward = ''; // Keine Belohnung für Böse
+    reward = ' - No Reward, you traitor!'; // Keine Belohnung für Böse
   } else {
     reward = ` — Reward: 10 000 Gold (Standard bounty)`; // Standard
   }
