@@ -1,0 +1,94 @@
+/* Herr der Ringe Look */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+  background-image: url('Orc_Bounty_hunter.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #f0e6d2;
+  font-family: 'MedievalSharp', cursive;
+  padding: 20px;
+  backdrop-filter: brightness(0.9); /* optional, dunkelt leicht ab */
+}
+
+h1 {
+    color: #e2c275;
+    text-shadow: 1px 1px #000;
+    text-align: center
+}
+
+h2, h3 {
+  color: #e2c275;
+  text-shadow: 1px 1px #000;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 2px solid #a1874d;
+  border-radius: 4px;
+  background-color: #3d2f1e;
+  color: #f0e6d2;
+  width: 60%;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #5b4025;
+  border: none;
+  color: #f0e6d2;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #7a5932;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid #000000;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.todo-text {
+  flex: 1;
+}
+
+/* Nur Text durchstreichen */
+.done .todo-text {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+/* Häkchen NICHT durchgestrichen */
+.done .done-checkmark {
+  text-decoration: none;
+  color: green;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+a {
+  color: #d4af37;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}

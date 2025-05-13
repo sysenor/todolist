@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Orcs' Bounty List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Orcs' Bounty List</h1>
+    <h2>Instructions:</h2>
+    <ul>
+        <li>
+          Add a name to the bounty list by entering it below and pressing the "+" button.
+        </li>
+        <li>
+          Click "[ Done ]" when the bounty has been claimed.
+        </li>
+        <li>
+          Click "[ Remove ]" to discard a bounty.
+        </li>
+       
+      </ul>
+    <h3>Mark your prey below:</h3>
+    <div>
+      <input
+        id="js-todo-create-text"
+        type="text"
+        name="todo-text"
+        placeholder="Enter the target name..."
+      />
+      <button id="js-todo-create" type="button">+</button>
+      <hr />
+      <ul id="js-todo-entries">
+         <!-- Start with an empty list -->
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
