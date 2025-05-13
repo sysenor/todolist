@@ -3,37 +3,50 @@ const input = document.getElementById('js-todo-create-text');
 const addButton = document.getElementById('js-todo-create');
 const entriesList = document.getElementById('js-todo-entries');
 
-// Liste bekannter Helden mit hohem Kopfgeld
+// Liste bekannter Helden mit hohem Kopfgeld (alle in Kleinbuchstaben, ohne Apostroph)
 const heroList = [
-  "Gandalf", "Aragorn", "Legolas", "Gimli", "Frodo",
-  "Sam", "Samwise", "Merry", "Pippin", "Éowyn",
-  "Faramir", "Elrond", "Galadriel", "Arwen", "Théoden", "Boromir"
+  "gandalf", "aragorn", "legolas", "gimli", "frodo",
+  "sam", "samwise", "merry", "pippin", "éowyn",
+  "faramir", "elrond", "galadriel", "arwen", "théoden", "boromir"
 ];
+
+// Liste der bekannten Bösewichte (auch in Kleinbuchstaben, ohne Apostroph)
+const villains = [
+  "sauron", "saruman", "gollum", "gríma", "witch-king",
+  "nazgûl", "mouth of sauron", "lurtz", "gothmog", "shelob"
+];
+
+// Funktion zum Bereinigen von Eingaben (kleinschreiben, Apostrophe entfernen)
+function normalizeName(name) {
+  return name.toLowerCase().replaceAll("'", "");
+}
 
 // Funktion zum Hinzufügen eines Eintrags
 function addTodoItem() {
-  const text = input.value.trim();
+  const rawText = input.value.trim();
 
-  if (text === '') {
+  if (rawText === '') {
     alert('Please enter a name!');
     return;
   }
 
+  const cleanName = normalizeName(rawText); // z. B. "Gandalf" → "gandalf"
+
   // Bestimme die Art der Belohnung
   let reward = '';
 
-  if (heroList.includes(text)) {
+  if (heroList.includes(cleanName)) {
     reward = ` — Reward: 1 500 000 Gold`;
-  } else if (isVillain(text)) {
-    reward = ''; // Kein Reward für Bösewichte
+  } else if (villains.includes(cleanName)) {
+    reward = ''; // Keine Belohnung für Böse
   } else {
-    reward = ` — Reward: 10 000 Gold (Standard bounty)`; // Normale Einträge
+    reward = ` — Reward: 10 000 Gold (Standard bounty)`; // Standard
   }
 
-  // Erstelle das neue Listenelement
+  // Erstelle das neue Listenelement mit Original-Text (für Anzeige)
   const li = document.createElement('li');
   li.innerHTML = `
-    <span class="todo-text">${text}${reward}</span>
+    <span class="todo-text">${rawText}${reward}</span>
     <a class="js-todo-entry-done" href="javascript:void(0);" title="Mark as done">[ Done ]</a>
     <a class="js-todo-entry-remove" href="javascript:void(0);" title="Remove">[ Remove ]</a>
   `;
@@ -41,15 +54,6 @@ function addTodoItem() {
   entriesList.appendChild(li);
   input.value = '';
   input.focus();
-}
-
-// Funktion prüft, ob ein Name ein Bösewicht ist
-function isVillain(name) {
-  const villains = [
-    "Sauron", "Saruman", "Gollum", "Gríma", "Witch-King",
-    "Nazgûl", "Mouth of Sauron", "Lurtz", "Gothmog", "Shelob"
-  ];
-  return villains.includes(name);
 }
 
 // Klick-Ereignisse behandeln
